@@ -1,5 +1,6 @@
 package com.example.littlelemon
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -23,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun UpperPanel(){
+fun UpperPanel() {
     val context = LocalContext.current
     Column(
         modifier = Modifier
@@ -60,7 +61,14 @@ fun UpperPanel(){
             )
         }
         Button(
-            onClick = { /* Add the Toast message here */},
+            onClick = {
+                Toast.makeText(
+                    context,
+                    "Order received. Thank you!",
+                    Toast.LENGTH_LONG,
+                )
+                    .show()
+            },
             shape = RoundedCornerShape(20.dp),
             colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF4CE14))
         ) {
@@ -76,6 +84,6 @@ fun UpperPanel(){
 
 @Preview(showBackground = true)
 @Composable
-fun UpperPanelPreview(){
+fun UpperPanelPreview() {
     UpperPanel()
 }
